@@ -1,0 +1,12 @@
+.scoreContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreContainer > span {
+    font-size: 24px;
+    font-weight: 600;
+}

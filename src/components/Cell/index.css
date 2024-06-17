@@ -1,0 +1,156 @@
+.cellWrapper {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    position: relative;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cell.red {
+    background-color: red;
+}
+
+.cell.green {
+    background-color: green;
+}
+
+.cell.valid {
+    cursor: pointer;
+}
+
+.cell.red.selected {
+    background-color: rgba(255, 0, 0, 0.6);
+}
+.cell.red.firstWaveValid {
+    background-color: rgba(255, 0, 0, 0.8);
+}
+.cell.red.secondWaveValid {
+    background-color: rgba(255, 0, 0, 0.4);
+}
+
+.cell.green.selected {
+    background-color: rgba(0, 128, 0, 0.6);
+}
+.cell.green.firstWaveValid {
+    background-color: rgba(0, 128, 0, 0.8);
+}
+.cell.green.secondWaveValid {
+    background-color: rgba(0, 128, 0, 0.4);
+}
+
+.cell.selected::before, .cell.selected::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1s infinite;
+}
+.cell.red.selected::before, .cell.red.selected::after {
+    border: 5px solid red;
+}
+.cell.red.selected::after {
+    animation-delay: 0.5s;
+}
+.cell.green.selected::before, .cell.green.selected::after {
+    border: 5px solid green;
+}
+.cell.green.selected::after {
+    animation-delay: 0.5s;
+}
+
+.cell.nullifyCell {
+    animation: nullifyCell 0.6s linear backwards;
+}
+
+.cellInner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+}
+
+.cellInner.red {
+    background-color: red;
+}
+.cellInner.green {
+    background-color: green;
+}
+.cellInner.invadeCell {
+    animation: invade 0.6s linear backwards;
+}
+
+
+@keyframes redSelected {
+    0% {
+        background: linear-gradient(0deg, red, darkred, firebrick);
+    }
+    50% {
+        background: linear-gradient(90deg, red, darkred, firebrick);
+    }
+    100% {
+        background: linear-gradient(180deg, red, darkred, firebrick);
+    }
+}
+
+@keyframes greenSelected {
+    0% {
+        background: linear-gradient(0deg, green, darkgreen, lightgreen);
+    }
+    50% {
+        background: linear-gradient(90deg, green, darkgreen, lightgreen);
+    }
+    100% {
+        background: linear-gradient(180deg, green, darkgreen, lightgreen);
+    }
+}
+
+@keyframes nullifyCell {
+    0% {
+        width: 100%;
+        height: 100%;
+    }
+    100% {
+        width: 0;
+        height: 0;
+    }
+}
+
+@keyframes invade {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes ring {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 60px;
+        height: 60px;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,10 @@
+.board {
+    width: fit-content;
+    height: fit-content;
+    min-width: 100px;
+    min-height: 100px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    display: flex;
+    flex-flow: column nowrap;
+}

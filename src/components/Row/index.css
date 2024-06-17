@@ -1,0 +1,7 @@
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+}
